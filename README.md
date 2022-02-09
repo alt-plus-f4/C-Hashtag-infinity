@@ -1,3 +1,4 @@
 # C-Hashtag-infinity
 HackTues infinity repo for C Hashtag
-@copyright - ME
+
+© Copyright 2022. 
