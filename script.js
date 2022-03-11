@@ -1,3 +1,15 @@
+function onSearch(event){
+    event.preventDefault();
+    text = document.getElementById('src-form').value;
+    let url = "http://192.168.100.19:5000/articles?search=" + text
+    console.log(text);
+
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", url, false ); // false for synchronous request
+    xmlHttp.send( null );
+    console.log(xmlHttp.responseText);
+}
+
 var canvasDots = function() {
     var canvas = document.querySelector('canvas'),
         ctx = canvas.getContext('2d'),
@@ -103,15 +115,8 @@ var canvasDots = function() {
 
 window.onload = function() {
     canvasDots();
+    const form = document.getElementById('search-form');
+    form.addEventListener("submit", onSearch)
 };
 
-function onSearch(){
-    text = document.getElementById('src-form').value;
-    let url = "https://nasasearch.nasa.gov/search/news?affiliate=nasa&channel=1616&query=" + text + "&sort_by=r"
-    console.log(text);
 
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", url, false ); // false for synchronous request
-    xmlHttp.send( null );
-    console.log(xmlHttp.responseText);
-}
