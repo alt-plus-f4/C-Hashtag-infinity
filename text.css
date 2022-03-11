@@ -17,3 +17,7 @@ body {
     margin: auto;
     overflow: hidden;
 }
+
+#main_title {
+    text-align: center;
+}

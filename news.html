@@ -10,8 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="about.css">
-    <link rel="stylesheet" href="text.css">
+    <link rel="stylesheet" href="news_card.css">
     <title>SpaceS</title>
 </head>
 
@@ -24,9 +23,9 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.html" class="link">Home</a></li>
-            <li><a href="news.html" class="link">News</a></li>
+            <li><a href="news.html" id="active"bclass="link">News</a></li>
             <li><a href="solar_system.html" class="link">Solar_System</a></li>
-            <li><a href="about.html" id="active" class="link">About</a></li>
+            <li><a href="about.html" class="link">About</a></li>
         </ul>
 
         <div class="burger">
@@ -36,20 +35,16 @@
         </div>
         <script src="burger.js"></script>
     </nav>
-    <div class="page">
-        <h1><br>This is a project made during HackTues 8.</h1>
-        <p><br>Space S is a website, that aims to share the latest news and educate people for the space.</p>
-        <p>There are lots of interesting facts about planets, galactics and natural satellites in space.<br>
-            There is also an interactive map of the Solar system, which you should definitely check out.<br>
-            We hope you have a great time here!</p>
-        <p><br><b>Made by: Team C Hashtag</b><br>
-            Nikolay Ivanov - Front End<br>
-            Sasho Alexandrov - Front End<br>
-            Valentin Asenov - Full Stack<br>
-            Emil Momchev - Back End<br>
-            Martin Andonov - Back End</p>
-        <p><br><b>Github:</b> https://github.com/alt-plus-f4/C-Hashtag-infinity<br><br><br></p>
+    <div class="card">
+        <h2>Title</h2>
+        <div class="image"></div>
+        <!-- Some random text -->
+        <p>Elon Musk built the first house on Mars!</p>
+        <div class="date">
+            <p>20 April 2069</p>
+            <p>Learn More <i class="learn_more"></i></p>
         </div>
+    </div>
 </body>
 <script src="text.js"></script>
 <script src="canvas.js"></script>
