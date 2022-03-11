@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
+    <script src = "script.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <title>SpaceS</title>
 </head>
 <body>
@@ -33,9 +35,10 @@
 
     <div class = "search">
         <a>Search interesting information: </a>
-        <input type="text" placeholder="Search..">
+        <form onsubmit = "onSearch()">
+            <input type="text" placeholder="Search" id ="src-form">
+            <input type="submit" value="Submit">
+        </form>
     </div>
-    
 </body>
-<script src = "canvas.js"></script>
 </html>

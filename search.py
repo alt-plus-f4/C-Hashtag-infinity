@@ -9,8 +9,8 @@ def search(input_str):
     return answers
 
 
-with open("test_search.html", "w") as fp:
-    fp.write('<!DOCTYPE html><html lang="en"><body>')
-    fp.write(search("mars"))
-    fp.write('</body></html>')
+#with open("test_search.html", "w") as fp:
+    # fp.write('<!DOCTYPE html><html lang="en"><body>')
+    # fp.write(search("mars"))
+    # fp.write('</body></html>')
 

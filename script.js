@@ -104,3 +104,15 @@ var canvasDots = function() {
 window.onload = function() {
     canvasDots();
 };
+
+function onSearch(){
+    text = document.getElementById('src-form').value;
+    console.log(text);
+    $.ajax({
+        type: "POST",
+        url: "~/search.py",
+        data: { param: text}
+      }).done(function() {
+            str = search(text);
+      });
+}
