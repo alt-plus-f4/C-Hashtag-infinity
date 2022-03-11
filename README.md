@@ -4,7 +4,7 @@
 
 Space S is a website for space news.
 
-<img src="/Users/sasho/webstorm_projects/C-Hashtag-Infinity/images/Space_S.png"/>
+<img src="images/Space_S.png"/>
 
 ## Authors
 
