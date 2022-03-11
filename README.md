@@ -1,7 +1,9 @@
 # Space S
 
 *This project was made over the course of a weekend during the hackathon [HACK TUES Infinity](https://hacktues.com).*
-Сайт с новини за космоса и всичко в него. Има всякакви интересни факти за планетите, галактиките, спътници и др. Също така включва интерактивна карта на слънчевата ни система (rip Pluto).
+
+Сайт с новини за космоса и всичко в него. Има всякакви интересни факти за планетите, 
+галактиките, спътници и др. Също така включва интерактивна карта на слънчевата ни система (rip Pluto).
 Space S is a website for space news.
 
 <img src="images/Space_S.png"/>
