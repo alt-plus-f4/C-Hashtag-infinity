@@ -108,11 +108,15 @@ window.onload = function() {
 function onSearch(){
     text = document.getElementById('src-form').value;
     console.log(text);
-    $.ajax({
-        type: "POST",
-        url: "~/search.py",
-        data: { param: text}
-      }).done(function() {
-            str = search(text);
-      });
+
+    var xml = new XMLHttpRequest();
+    xml.open("POST","{{url_for('func.func')}}",true); 
+    xml.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+    xml.onload = function(){
+        var dataReply = JSON.parse(this.responseText);
+    };
+
+    xml.send(textS);
+    console.log(dataReply);
 }
