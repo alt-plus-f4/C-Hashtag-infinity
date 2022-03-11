@@ -1,4 +1,39 @@
+import requests
+from bs4 import BeautifulSoup
 import mysql.connector
+from urllib.request import Request,urlopen
+import lxml.html
+
+
+
+# getting list with news links
+
+link = "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Orion/The_making_of_the_European_Service_Modules"
+
+req = Request(link, headers={'User-Agent': 'Mozilla/5.0'})
+webpage = urlopen(req).read()
+
+with requests.Session() as c:
+    soup = BeautifulSoup(webpage, 'lxml')
+
+
+response = requests.post(link)
+tree = lxml.html.fromstring(response.text)
+print(response.text)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 db = mysql.connector.connect(
     # host should be changed to the adress of the sqlserver
