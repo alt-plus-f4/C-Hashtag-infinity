@@ -26,6 +26,25 @@ canvas {
     bottom: 0; 
 }
 
+.news-main{
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    /* grid-template-columns: min; */
+}
+
+.left{
+    display: grid;
+    float: left;
+}
+
+.right{
+    display: grid;
+    float: right;
+}
+
+
+
 @media only screen and (min-width: 1024px) {
 
 }

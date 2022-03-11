@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ewqweqbody{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card{
+    position:absolute;
+    top: 300px; 
+    left: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1px;
+    border-top: 6px solid red;
+    width: 330px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.card h2{
+    font-size: 30px;
+    margin: 10px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.card p{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.card .image{
+    background-image: url("https://images.unsplash.com/photo-1552353617-3bfd679b3bdd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
+    background-size: cover;
+    margin:5px 0;
+    height: 200px;
+    width: 100%;
+}
+
+.card .date{
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px dashed rgb(158, 158, 158);
+    border-bottom: 2px dashed rgb(158, 158, 158);
+    margin-top: 10px;
+    padding: 5px 0;
+}
+
+.card .date p i{
+    padding-left: 10px;
+}
+
+.card .date p:last-of-type:hover{
+    color: gray;
+    cursor: pointer;
+}
