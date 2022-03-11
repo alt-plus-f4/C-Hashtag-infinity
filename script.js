@@ -107,16 +107,11 @@ window.onload = function() {
 
 function onSearch(){
     text = document.getElementById('src-form').value;
+    let url = "https://nasasearch.nasa.gov/search/news?affiliate=nasa&channel=1616&query=" + text + "&sort_by=r"
     console.log(text);
 
-    var xml = new XMLHttpRequest();
-    xml.open("POST","{{url_for('func.func')}}",true); 
-    xml.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-
-    xml.onload = function(){
-        var dataReply = JSON.parse(this.responseText);
-    };
-
-    xml.send(textS);
-    console.log(dataReply);
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", url, false ); // false for synchronous request
+    xmlHttp.send( null );
+    console.log(xmlHttp.responseText);
 }
