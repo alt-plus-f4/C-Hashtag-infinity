@@ -524,12 +524,14 @@ html, body {
 
 /** Todo: add shadows to  dbl planets */
 
-.latest-title {
-    margin: 30px;
-    word-wrap: break-word;
+.leading{
+    display: flex;
+    flex-direction: column;
 }
 
 .latest {
+
+    overflow-y: auto;
     margin: 30px;
     color: #ffff;
     background-image: url("../images/saturn.png");
@@ -547,6 +549,11 @@ html, body {
     background: linear-gradient(hsl(0 0% 0% / 0), hsl(20 0% 0% / .3) 20%, hsl(0 0% 0% / 1));
     transform: translateY(60%);
     transition: transform 500ms ease;
+}
+
+.latest-title {
+    margin: 30px;
+    word-wrap: break-word;
 }
 
 .latest:hover .latest-content {
