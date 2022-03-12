@@ -26,7 +26,7 @@ fp = open("static\jsons\mars.json")
 
 data = json.load(fp)
 fp.close()
-print(data["img"])
+# print(data["img"])
 
 
 @app.route("/solar_system")
