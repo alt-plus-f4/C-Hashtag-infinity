@@ -22,17 +22,21 @@ def news():
     return render_template("news.html")
 
 
-fp = open("static\jsons\mars.json")
+'''fp = open("static\jsons\mars.json")
 
 data = json.load(fp)
 fp.close()
-print(data["img"])
+'''
+
+
+# print(data["img"])
 
 
 @app.route("/solar_system")
 @cross_origin()
 def solar_system():
-    return render_template("solar_system.html", title=data["title"], content=data["content"], img=data["img"])
+    # return render_template("solar_system.html", title=data["title"], content=data["content"], img=data["img"])
+    return render_template("solar_system.html", title=data["title"], content=data["content"], img="../static/images")
 
 
 @app.route("/about")
@@ -41,11 +45,13 @@ def about():
     return render_template("about.html")
 
 
+'''
 @app.route("/search", methods=['GET'])
 @cross_origin()
 def search_page(all_searches=[]):
     # TODO Errors
-    return render_template()
+    return render_template("search_page")
+'''
 
 
 @app.route('/articles', methods=['GET'])
@@ -60,8 +66,10 @@ def articles():
 
     for answer in answers:
         title = answer.find("h4", {"class": "title"}).find("a").text
+        print()
         description = answer.find("span", {"class": "description"}).text
         link = answer.find("h4", {"class": "title"}).find("a")["href"]
+        # img =
         result.append({"title": title, "description": description, "link": link})
 
     return jsonify(result)
@@ -75,14 +83,12 @@ def article_by_url():
 
     browser = helium.start_chrome(input_url, headless=True)
     html = browser.page_source
-    # soup = BeautifulSoup(html, 'lxml')
-    #
-    # a = soup.find('section', 'wrapper')
-    # req = requests.get(input_url)
     answer = BeautifulSoup(html, features="html.parser")
     title = answer.find("h1", {"class": "title"}).text
+    # TODO
+    # text = answer.find("h1", {"class": "title"}).text
+    # img = answer.find("h1", {"class": "title"}).text
     print(title)
-    # print(answer)
 
     return result
 
