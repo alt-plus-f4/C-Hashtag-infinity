@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
+html,body{overflow-y: scroll; }
+
 * {
     font-family: 'Fredoka', sans-serif;
     margin: 0;
@@ -534,7 +536,6 @@ html, body {
     border-radius: .5rem;
     overflow: hidden;
     transition: transform 500ms ease;
-    scaleX(0);
 }
 
 .latest-content {
