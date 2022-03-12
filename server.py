@@ -22,13 +22,10 @@ def news():
     return render_template("news.html")
 
 
-'''fp = open("static\jsons\mars.json")
+fp = open("static\jsons\mars.json")
 
 data = json.load(fp)
 fp.close()
-'''
-
-
 # print(data["img"])
 
 

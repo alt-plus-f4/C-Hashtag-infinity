@@ -31,6 +31,17 @@ canvas {
     bottom: 0; 
 }
 
+.connecting-dots{
+    z-index: -1;
+    background-image: linear-gradient( 90deg, hsl(152deg 70% 16%) 0%, hsl(181deg 75% 7%) 25%, hsl(192deg 91% 1%) 64%, hsl(0deg 0% 0%) 100% );
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0; 
+}
+
 .news-content{
     display: flex;
     flex-direction: row;
@@ -325,4 +336,206 @@ textarea:focus, input:focus {
     background: transparent;
     color: white;
 }
+
+/* PLANETS CSS */
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+.galaxy {
+	height: 100%;
+	width: 100%;
+    box-shadow: 3px 3px 5px #000;
+}
+
+.planet {
+	border-radius: 50%;
+	margin-top: 50vh;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	transform: translateY(-50%);
+	float: left;
+	position: relative;
+	cursor: pointer;
+    /* box-shadow: 3px 3px 5px #000; */
+}
+
+.planet-info {
+	display: none;
+	position: absolute;
+    left: calc(100% + 5px);
+	top: 50%;
+	transform: translateY(-50%);
+	border-right-color: rgba(9, 24, 107, 0.753);
+	color: white;
+	padding: 5px;
+	font-weight: 900;
+	z-index: 100;
+	font-family: Helvetica;
+}
+
+.planet-info:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: calc(50% - 5px);
+	right: 100%;
+	border: 5px solid transparent;
+	border-right-color: rgba(9, 24, 107, 0.322);
+}
+
+.planet:hover .planet-info {
+    display: block;
+}
+
+.sun {
+	height: 2000px;
+	width: 2000px;
+	margin-left: -1950px;
+	background: rgb(254, 158, 54);
+	box-shadow: 0 0 100px 50px rgba(218, 58, 7, 0.5), inset -10px 10px rgba(255, 255, 255, 0.1);
+	z-index: 10;
+}
+
+.mercury {
+	height: 50px;
+	width: 50px;
+	background: rgb(156, 156, 156);
+	box-shadow: inset -3px 0 0.5px rgba(0, 0, 0, 0.8);
+	margin-left: 5px;
+	z-index: 9;
+}
+
+.venus {
+	height: 65px;
+	width: 65px;
+	background: rgb(171, 101, 34);
+	box-shadow: inset -8px 0 1px rgba(0, 0, 0, 0.8);
+	margin-left: 4.31px;
+	z-index: 8;
+}
+
+.earth {
+	height: 70px;
+	width: 70px;
+	background: rgb(6, 62, 125);
+	box-shadow: inset -9px 0 1.5px rgba(0, 0, 0, 0.8);
+	margin-left: 3.62px;
+	z-index: 7;
+}
+
+.mars {
+	height: 75px;
+	width: 75px;
+	background: rgb(212, 76, 3);
+	box-shadow: inset -4px 0 0.5px rgba(0, 0, 0, 0.8);
+	margin-left: 6.72px;
+	z-index: 6;
+}
+
+.jupiter {
+  height: 200px;
+  width: 200px;
+  background: -webkit-linear-gradient(rgb(154, 144, 127) 15%, rgb(154, 144, 127) 25%, rgb(156, 156, 155) 27%, rgb(156, 156, 155) 45%, rgb(143, 132, 117) 50%, rgb(181, 161, 129) 60%, rgb(181, 161, 129) 80%, rgb(128, 125, 123) 85%);
+  background: -moz-linear-gradient(rgb(154, 144, 127) 15%, rgb(154, 144, 127) 25%, rgb(156, 156, 155) 27%, rgb(156, 156, 155) 45%, rgb(143, 132, 117) 50%, rgb(181, 161, 129) 60%, rgb(181, 161, 129) 80%, rgb(128, 125, 123) 85%);
+  background: -o-linear-gradient(rgb(154, 144, 127) 15%, rgb(154, 144, 127) 25%, rgb(156, 156, 155) 27%, rgb(156, 156, 155) 45%, rgb(143, 132, 117) 50%, rgb(181, 161, 129) 60%, rgb(181, 161, 129) 80%, rgb(128, 125, 123) 85%);
+  background: linear-gradient(rgb(154, 144, 127) 15%, rgb(154, 144, 127) 25%, rgb(156, 156, 155) 27%, rgb(156, 156, 155) 45%, rgb(143, 132, 117) 50%, rgb(181, 161, 129) 60%, rgb(181, 161, 129) 80%, rgb(128, 125, 123) 85%);
+  box-shadow: inset -75px 0 25px rgba(0, 0, 0, 0.8);
+  margin-left: 47.41px;
+  z-index: 5;
+}
+
+.saturn {
+	height: 167.4px;
+	width: 167.4px;
+	margin-left: 105.93px;
+	z-index: 4;
+}
+
+.uranus {
+	height: 72.8px;
+	width: 72.8px;
+	background: rgb(194, 232, 235);
+	box-shadow: inset -25px 0 9px rgba(0, 0, 0, 0.8);
+	margin-left: 124px;
+	z-index: 3;
+}
+
+.neptune {
+	height: 70.7px;
+	width: 70.7px;
+	background: rgb(66, 109, 253);
+	box-shadow: inset -25px 0 9px rgba(0, 0, 0, 0.8);
+	margin-left: 140.26px;
+	z-index: 2;
+}
+
+.earth {
+	background-image: url("http://www.clker.com/cliparts/X/O/z/X/W/L/hatra-decupaj.svg");
+	background-size: cover;
+}
+
+.mars:before, .mars:after {
+	content: "";
+	position: absolute;
+	background: rgba(0, 0, 0, 0.5);
+	display: block;
+	border-radius: 50%;
+	height: 2px;
+	width: 2px;
+}
+
+.mars:before {
+	top: 2px;
+	left: 2px;
+}
+
+.mars:after {
+	top: 6px;
+	left: 4px;
+}
+
+.saturn-rings {
+	height: 50px;
+	width: 340px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%) rotateZ(-10deg);
+	-moz-transform: translate(-50%, -50%) rotateZ(-10deg);
+	transform: translate(-50%, -50%) rotateZ(-10deg);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(24,19,25,0) 0%,rgba(53,52,51,0) 34%,rgba(55,54,52,1) 36%,rgba(56,55,53,1) 37%,rgba(68,67,66,1) 38%,rgba(56,55,53,1) 39%,rgba(68,67,66,1) 40%,rgba(56,55,53,1) 41%,rgba(87,77,76,1) 42%,rgba(87,77,76,1) 44%,rgba(113,110,103,1) 46%,rgba(113,110,103,1) 48%,rgba(113,98,93,1) 49%,rgba(113,98,93,1) 51%,rgba(122,115,105,1) 52%,rgba(113,98,93,1) 53%,rgba(113,98,93,1) 54%,rgba(122,115,105,1) 55%,rgba(106,99,89,1) 56%,rgba(106,99,89,1) 58%,rgba(79,76,76,0) 60%,rgba(65,64,70,1) 61%,rgba(65,64,70,1) 62%,rgba(90,85,89,1) 63%,rgba(78,74,73,1) 65%,rgba(78,73,74,1) 67%,rgba(78,73,74,0) 68%,rgba(78,73,75,1) 69%,rgba(78,73,75,1) 70%,rgba(78,73,76,0) 71%,rgba(77,72,76,0) 72%,rgba(24,19,25,0) 100%);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(24,19,25,0) 0%,rgba(53,52,51,0) 34%,rgba(55,54,52,1) 36%,rgba(56,55,53,1) 37%,rgba(68,67,66,1) 38%,rgba(56,55,53,1) 39%,rgba(68,67,66,1) 40%,rgba(56,55,53,1) 41%,rgba(87,77,76,1) 42%,rgba(87,77,76,1) 44%,rgba(113,110,103,1) 46%,rgba(113,110,103,1) 48%,rgba(113,98,93,1) 49%,rgba(113,98,93,1) 51%,rgba(122,115,105,1) 52%,rgba(113,98,93,1) 53%,rgba(113,98,93,1) 54%,rgba(122,115,105,1) 55%,rgba(106,99,89,1) 56%,rgba(106,99,89,1) 58%,rgba(79,76,76,0) 60%,rgba(65,64,70,1) 61%,rgba(65,64,70,1) 62%,rgba(90,85,89,1) 63%,rgba(78,74,73,1) 65%,rgba(78,73,74,1) 67%,rgba(78,73,74,0) 68%,rgba(78,73,75,1) 69%,rgba(78,73,75,1) 70%,rgba(78,73,76,0) 71%,rgba(77,72,76,0) 72%,rgba(24,19,25,0) 100%);
+	background: radial-gradient(ellipse at center, rgba(24,19,25,0) 0%,rgba(53,52,51,0) 34%,rgba(55,54,52,1) 36%,rgba(56,55,53,1) 37%,rgba(68,67,66,1) 38%,rgba(56,55,53,1) 39%,rgba(68,67,66,1) 40%,rgba(56,55,53,1) 41%,rgba(87,77,76,1) 42%,rgba(87,77,76,1) 44%,rgba(113,110,103,1) 46%,rgba(113,110,103,1) 48%,rgba(113,98,93,1) 49%,rgba(113,98,93,1) 51%,rgba(122,115,105,1) 52%,rgba(113,98,93,1) 53%,rgba(113,98,93,1) 54%,rgba(122,115,105,1) 55%,rgba(106,99,89,1) 56%,rgba(106,99,89,1) 58%,rgba(79,76,76,0) 60%,rgba(65,64,70,1) 61%,rgba(65,64,70,1) 62%,rgba(90,85,89,1) 63%,rgba(78,74,73,1) 65%,rgba(78,73,74,1) 67%,rgba(78,73,74,0) 68%,rgba(78,73,75,1) 69%,rgba(78,73,75,1) 70%,rgba(78,73,76,0) 71%,rgba(77,72,76,0) 72%,rgba(24,19,25,0) 100%);
+}
+
+.saturn-top, .saturn-bottom {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: -webkit-linear-gradient(rgb(95, 88, 79) 5%, rgb(144, 129, 101) 6%, rgb(144, 129, 101) 15%, rgb(213, 184, 133) 20%, rgb(210, 175, 119) 25%, rgb(210, 175, 119) 45%, rgb(254, 208, 133) 50%, rgb(254, 208, 133) 75%, rgb(149, 136, 114) 85%);
+	background: -moz-linear-gradient(rgb(95, 88, 79) 5%, rgb(144, 129, 101) 6%, rgb(144, 129, 101) 15%, rgb(213, 184, 133) 20%, rgb(210, 175, 119) 25%, rgb(210, 175, 119) 45%, rgb(254, 208, 133) 50%, rgb(254, 208, 133) 75%, rgb(149, 136, 114) 85%);
+	background: -o-linear-gradient(rgb(95, 88, 79) 5%, rgb(144, 129, 101) 6%, rgb(144, 129, 101) 15%, rgb(213, 184, 133) 20%, rgb(210, 175, 119) 25%, rgb(210, 175, 119) 45%, rgb(254, 208, 133) 50%, rgb(254, 208, 133) 75%, rgb(149, 136, 114) 85%);
+	background: linear-gradient(rgb(95, 88, 79) 5%, rgb(144, 129, 101) 6%, rgb(144, 129, 101) 15%, rgb(213, 184, 133) 20%, rgb(210, 175, 119) 25%, rgb(210, 175, 119) 45%, rgb(254, 208, 133) 50%, rgb(254, 208, 133) 75%, rgb(149, 136, 114) 85%);
+	border-radius: 50%;
+	top: 0;
+	left: 0;
+	-webkit-transform: rotateZ(-10deg);
+	-moz-transform: rotateZ(-10deg);
+	transform: rotateZ(-10deg);
+	box-shadow: inset -60px 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.saturn-top {
+	clip: rect(0px, 167px, 83.5px, 0px);
+}
+
+.saturn-bottom {
+	clip: rect(83.5px, 167px, 167px, 0px);
+}
+
+/** Todo: add shadows to  dbl planets */
 
