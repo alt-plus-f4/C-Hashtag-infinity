@@ -393,15 +393,18 @@ html, body {
 .planet-info {
     display: none;
     position: absolute;
-    left: calc(100% + 5px);
+    text-align: center;
     top: 50%;
     transform: translateY(-50%);
     border-right-color: rgba(9, 24, 107, 0.753);
     color: white;
+    background: rgba(91, 92, 136, 0.541);
+    border-radius: 8px;
     padding: 5px;
     font-weight: 900;
     z-index: 100;
     font-family: Helvetica;
+    pointer-events: none;
 }
 
 .planet-info:before {
