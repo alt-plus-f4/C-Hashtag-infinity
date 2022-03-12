@@ -109,7 +109,6 @@ window.onresize = resizeCanvas;
 
 function resizeCanvas(){
     var canvas = document.querySelector('canvas');
-    console.log("test");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
