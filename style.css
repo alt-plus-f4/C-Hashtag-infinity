@@ -1,4 +1,5 @@
 * {
+    box-sizing: border-box;
     font-family: 'Fredoka', sans-serif;
 }
 
@@ -27,23 +28,29 @@ canvas {
 }
 
 .news-main{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
     justify-content: center;
-    display: grid;
-    grid-template-rows: 50% 50%;
-    /* grid-template-columns: min; */
 }
 
-.left{
-    display: grid;
+.news-main div{
+    margin-top: 20px;
+    max-width: 350px;
+    text-align: center;
+    font-size: 18px;
+    background: rgba(56, 57, 128, 0.342);
+}
+
+.content {
     float: left;
+    margin-right: 10px;
 }
 
-.right{
-    display: grid;
-    float: right;
+.content img{
+    width: 350px;
+    height: 250px;
 }
-
-
 
 @media only screen and (min-width: 1024px) {
 
@@ -53,4 +60,3 @@ canvas {
 @media only screen and (min-width: 1600px) {
 
 }
-
