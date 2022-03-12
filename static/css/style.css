@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 * {
-    box-sizing: border-box;
-    font-family: 'Fredoka', sans-serif;
-}
-
-* {
     font-family: 'Fredoka', sans-serif;
     margin: 0;
     padding: 0;
@@ -60,17 +55,6 @@ canvas {
     width: 350px;
     height: 250px;
 }
-
-@media only screen and (min-width: 1024px) {
-
-}
-
-
-@media only screen and (min-width: 1600px) {
-
-}
-
-/* text.css */
 
 h1.splitting {
     color: #84a8ff;
@@ -141,8 +125,6 @@ input#search-bar:focus:-ms-placeholder {
     right: -4px;
 }
 
-/* News Card */
-
 .card {
     position: absolute;
     top: 300px;
@@ -192,4 +174,13 @@ input#search-bar:focus:-ms-placeholder {
 .card .date p:last-of-type:hover {
     color: gray;
     cursor: pointer;
+}
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+
+@media only screen and (min-width: 1600px) {
+
 }
