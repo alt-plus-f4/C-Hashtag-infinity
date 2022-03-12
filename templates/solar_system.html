@@ -14,42 +14,32 @@
 </head>
 
 <body>
-    <canvas class='connecting-dots'></canvas>
-    <nav class="nav">
-        <!--<img src="images/Space_S.png" alt="logo"> -->
-        <div class="logo">
-            <h4>Space [S]</h4>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="link">Home</a></li>
-            <li><a href="news.html" class="link">News</a></li>
-            <li><a href="solar_system.html" id="active" class="link">Solar_System</a></li>
-            <li><a href="about.html" class="link">About</a></li>
-        </ul>
+<canvas class='connecting-dots'></canvas>
+<nav class="nav">
+    <!--<img src="images/Space_S.png" alt="logo"> -->
+    <div class="logo">
+        <h4>Space [S]</h4>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/" id="active" class="link">Home</a></li>
+        <li><a href="/news" class="link">News</a></li>
+        <li><a href="/solar_system" class="link">Solar_System</a></li>
+        <li><a href="/about" class="link">About</a></li>
+    </ul>
 
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-        <script src="../static/js/burger.js"></script>
-    </nav>
-    <div class="page">
-        <h1><br>This is a project made during HackTues 8.</h1>
-        <p><br>Space S is a website, that aims to share the latest news and educate people for the space.</p>
-        <p>There are lots of interesting facts about planets, galactics and natural satellites in space.<br>
-            There is also an interactive map of the Solar system, which you should definitely check out.<br>
-            We hope you have a great time here!</p>
-        <p><br><b>Made by: Team C Hashtag</b><br>
-            Nikolay Ivanov - Front End<br>
-            Sasho Alexandrov - Front End<br>
-            Valentin Asenov - Full Stack<br>
-            Emil Momchev - Back End<br>
-            Martin Andonov - Back End</p>
-        <p><br><b>Github:</b> https://github.com/alt-plus-f4/C-Hashtag-infinity<br><br><br></p>
-        </div>
+    <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <script src="../static/js/burger.js"></script>
+</nav>
+<div class="page">
+    <h1><br>{{title}}</h1>
+    <a><br>{{content}}</a>
+    <img scr={{img}} alt="Picture mars">
+</div>
 </body>
-<script src="../static/js/text.js"></script>
 <script src="../static/js/canvas.js"></script>
 
 </html>
