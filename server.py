@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from helium import *
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 
@@ -26,6 +28,26 @@ def articles():
         result.append({"title": title, "description": description, "link": link})
 
     return jsonify(result)
+
+
+@app.route('/article', methods=['GET'])
+@cross_origin()
+def article_by_url():
+    result = {}
+    input_url = request.args.get("url")
+
+    browser = helium.start_chrome(input_url, headless=True)
+    html = browser.page_source
+    # soup = BeautifulSoup(html, 'lxml')
+    #
+    # a = soup.find('section', 'wrapper')
+    # req = requests.get(input_url)
+    answer = BeautifulSoup(html, features="html.parser")
+    title = answer.find("h1", {"class": "title"})
+    print(title)
+    # print(answer)
+
+    return result
 
 
 if __name__ == "__main__":

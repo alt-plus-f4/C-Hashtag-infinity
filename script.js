@@ -2,7 +2,8 @@ function onSearch(event){
     event.preventDefault();
     text = document.getElementById('src-form').value;
     let url = "http://192.168.100.19:5000/articles?search=" + text
-    console.log(text);
+    //et url = "https://www.nasa.gov/api/2/ubernode/477611"
+    console.log(text._id);
 
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", url, false ); // false for synchronous request
