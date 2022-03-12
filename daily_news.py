@@ -5,7 +5,6 @@ nasa_api_key = "8DfEhspAfjMGPWckNEJqr81Zrfv4mqBgMXCSrFDa"
 
 r = requests.get("https://api.nasa.gov/planetary/apod?api_key=8DfEhspAfjMGPWckNEJqr81Zrfv4mqBgMXCSrFDa")
 
-print(r.content)
 
 class NasaApi:
     def __init__(self, api_key):
@@ -20,7 +19,3 @@ class NasaApi:
 
 
 api_test = NasaApi(nasa_api_key)
-
-print(api_test.daily_content())
-print(datetime.date.today() - datetime.timedelta(days=7))
-

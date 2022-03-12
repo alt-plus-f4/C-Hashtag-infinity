@@ -4,29 +4,31 @@ from bs4 import BeautifulSoup
 from helium import *
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS, cross_origin
+from daily_news import NasaApi
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+fp = open("static\jsons\mars.json", "r")
+# planet_data = json.load(fp)
+fp.close()
+
+
+# print(type(planet_data))
+
 
 @app.route("/")
 @cross_origin()
+# TODO get the values from the database
 def index():
     return render_template("index.html")
 
 
-@app.route("/news")
+@app.route("/entertainment")
 @cross_origin()
-def news():
-    return render_template("news.html")
-
-
-# fp = open("static\jsons\mars.json")
-#
-# data = json.load(fp)
-# fp.close()
-# print(data["img"])
+def entertainment():
+    return render_template("calculator.html")
 
 
 @app.route("/solar_system")
@@ -64,14 +66,13 @@ def articles():
     for answer in answers:
         title = answer.find("h4", {"class": "title"}).find("a")
         link = title["href"]
-        print(link)
+        description = answer.find("span", {"class": "description"}).text.strip()
+        # img = "https://www.northropgrumman.com/wp-content/uploads/space-facebook.jpg"
+        result.append({"title": title.text.strip(), "description": description, "link": link})
 
-        description = answer.find("span", {"class": "description"})
-        # img =
-        result.append({"title": title.text, "description": description.text, "link": link})
     print(result)
 
-    return jsonify(result)
+    index()
 
 
 @app.route('/article', methods=['GET'])
@@ -83,13 +84,30 @@ def article_by_url():
     browser = helium.start_chrome(input_url, headless=True)
     html = browser.page_source
     answer = BeautifulSoup(html, features="html.parser")
-    title = answer.find("h1", {"class": "title"}).text
-    # TODO
-    # text = answer.find("h1", {"class": "title"}).text
-    # img = answer.find("h1", {"class": "title"}).text
-    print(title)
 
-    return result
+    title = answer.find("h1", {"class": "title"}).text
+    img = "https://nasa.gov" + answer.find("div", {"class": "dnd-drop-wrapper"}).find("img")["src"]
+    text_list = answer.find("div", {"class": "text"}).find_all("p")
+
+    text = ""
+    for texts in text_list:
+        if "<strong>" not in str(texts):
+            text += texts.text
+        else:
+            break
+
+    result = {"title": title, "img": img, "data": text}
+
+    return render_template("test_search.html", content=result["data"], title=result["title"], img=result["img"])
+
+
+@app.route('/solar_system/article', methods=['GET'])
+@cross_origin()
+def article_by_planet():
+    input_id = request.args.get("id")
+
+    return render_template("test_search.html", content=planet_data[input_id]["data"],
+                           title=planet_data[input_id]["title"], img=planet_data[input_id]["img"])
 
 
 if __name__ == "__main__":
