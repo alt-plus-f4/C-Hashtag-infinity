@@ -26,7 +26,7 @@ fp = open("static\jsons\mars.json")
 
 data = json.load(fp)
 fp.close()
-print(data["title"])
+print(data["img"])
 
 
 @app.route("/solar_system")
@@ -50,7 +50,6 @@ def articles():
     req = requests.get(
         f"https://nasasearch.nasa.gov/search/news?affiliate=nasa&channel=1616&query={input_str}&sort_by=r")
     answers = BeautifulSoup(req.text, features="html.parser").find_all(class_="content-block-item result")
-    # titles = answers.find_all("")
 
     for answer in answers:
         title = answer.find("h4", {"class": "title"}).find("a").text
