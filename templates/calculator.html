@@ -1,155 +1,187 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title>Weight Calculator</title>
-	</head>
-	<style media="screen">
-		body{
-			margin: 0;
-			padding: 0;
-			text-align: center;
-			font-family: sans-serif;
-			background-image: linear-gradient(120deg,#ff6b6b, #5f27cd);
-			min-height: 100vh;
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../static/css/style.css">
+<link rel="stylesheet" href="../static/css/navbar.css">
+<title>SpaceS - Calculator</title>
+</head>
+<style>
+	body{
+		text-align: center;
+		font-family: sans-serif;
+		background-image: linear-gradient(120deg,#ff6b6b, #5f27cd);
+		min-height: 100vh;
 		}
-    #select1 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 0px;
-        margin-top: 0px;
-        text-align: center;
-        outline: 0;
-        background: #FFFFFF;
+	#select1 {
+		display: inline-block;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0px;
+		margin-top: 15px;
+		text-align: center;
+		outline: 0;
+		background: #FFFFFF;
 
-        color: #000000;
-        border: 1px solid crimson;
-        padding: 4px;
-        border-radius: 9px;
-        /*DO NOT TOUCH*/
-        display: block; 
-        margin: 0 auto;
-   }
+		color: #000000;
+		border: 1px solid blue;
+		padding: 4px;
+		border-radius: 9px;
+		/*DO NOT TOUCH*/
+		display: block; 
+		margin: 0 auto;
+	}
 
-input {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     margin: 0 auto;
-   }
-		div{
-			width: 500px;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			background-color: #fff;
-			transform: translate(-50%, -50%);
-			padding: 20px;
-			border-radius: 10px;
-			box-shadow: 1px 1px 20px #ee5253;
-		}
-		h2{
-			font-size: 30px;
-			font-weight: 600;
-		}
-		.text{
-			text-align: left;
-			margin-left: 150px;
-		}
-		#w, #h{
-			color: #222f3e;
-			text-align: left;
-			font-size: 20px;
-			font-weight: 200;
-			outline: none;
-			border: none;
-			background: none;
-			border-bottom: 1px solid #341f97;
-			width: 200px;
-		}
-			#w:focus, #h:focus{
-				border-bottom: 2px solid #341f97;
-				width: 300px;
-				transition: 0.5s;
-			}
-			#result{
-				color: #341f97;
-			}
-			#btn{
-				font-family: inherit;
-				margin-top: 10px;
-				border: none;
-				color: #fff;
-				background-image: linear-gradient(120deg,#ff6b6b, #5f27cd);
-				width: 150px;
-				padding: 10px;
-				border-radius: 30px;
-				outline: none;
-				cursor: pointer;
-			}
-			#btn:hover{
-				box-shadow: 1px 1px 10px #341f97;
-			}
-			#info{
-				font-size: 12px;
-				font-family: inherit;
-			}
-	</style>
+	input {
+		display: flex;
+		align-items: center;
+		color: white;
+		justify-content: center;
+		margin: 0 auto;
+		padding: 5px;
+	}
+
+	h2{
+		font-size: 30px;
+		font-weight: 600;
+	}
+	.text{
+		text-align: left;
+		margin-left: 150px;
+	}
+	#w, #h{
+		color: rgba(255, 255, 255, 0.699);
+		text-align: left;
+		font-size: 20px;
+		font-weight: 200;
+		outline: none;
+		border: none;
+		background: none;
+		border-bottom: 1px solid #341f97;
+		width: 200px;
+		margin-bottom: 15px;
+	}
+	#w:focus, #h:focus{
+		border-bottom: 2px solid #341f97;
+		width: 300px;
+		transition: 0.5s;
+	}
+	#result{
+		color: #c3c1c9;
+		margin-bottom: 5px;
+	}
+	#btn{
+		font-family: inherit;
+		border: none;
+		color: #fff;
+		margin-top: 10px;
+		background-image: linear-gradient(110deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 26%, rgba(0,212,255,1) 100%);
+		width: 150px;
+		padding: 10px;
+		border-radius: 30px;
+		outline: none;
+		cursor: pointer;
+	}
+	#btn:hover{
+		box-shadow: 1px 1px 10px #341f97;
+	}
+	#info{
+		font-size: 12px;
+		font-family: inherit;
+	}
+	.inputs{
+		display: block;
+		width: 500px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		background-color: rgba(31, 46, 40, 0.514);
+		transform: translate(-50%, -50%);
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 1px 1px 20px #3540a0;
+	}
+</style>
 	<body>
-		<div>
+		<canvas class='connecting-dots1'></canvas>
+		<nav class="nav">
+			<div class="logo">
+				<h4>Space [S]</h4>
+			</div>
+			<ul class="nav-links">
+				<li><a href="/" class="link">Home</a></li>
+				<li><a href="/entertainment" id="active" class="link">Entertainment</a></li>
+				<li><a href="/solar_system" class="link">Solar_System</a></li>
+				<li><a href="/about" class="link">About</a></li>
+			</ul>
+			<div class="burger">
+				<div class="line1"></div>
+				<div class="line2"></div>
+				<div class="line3"></div>
+			</div>
+			<script src="../static/js/burger.js"></script>
+		</nav>
+
+		<div class = "inputs">
 			<h2>Find your weight on different planets</h2>
 			<p class="text">Weight (kg):</p>
 			<input type="text" id="w">
 			<p id="result"></p>
-      <select id="select1">
-            <option value="Sun">Sun</option>
-            <option value="Mercury">Mercury</option>
-            <option value="Venus">Venus</option>
-            <option value="Moon">Moon</option>
-            <option value="Mars">Mars</option>
-            <option value="Jupiter">Jupiter</option>
-            <option value="Saturn">Saturn</option>
-            <option value="Uranus">Uranus</option>
-            <option value="Neptune">Neptune</option>
-            <option value="Pluto">Pluto</option>
-        </select>
-      <button id="btn" onClick="Calculate()">Calculate</button>
+      		<select id="select1">
+				<option value="Sun">Sun</option>
+				<option value="Mercury">Mercury</option>
+				<option value="Venus">Venus</option>
+				<option value="Moon">Moon</option>
+				<option value="Mars">Mars</option>
+				<option value="Jupiter">Jupiter</option>
+				<option value="Saturn">Saturn</option>
+				<option value="Uranus">Uranus</option>
+				<option value="Neptune">Neptune</option>
+				<option value="Pluto">Pluto</option>
+        	</select>
+      		<button id="btn" onClick="Calculate()">Calculate</button>
 		</div>
-    <script>function Calculate(){
+    <script>
+	function Calculate(){
 		var w = document.getElementById('w').value;
-  var e = document.getElementById("select1");
-var strUser = e.value;
-    if(strUser == "Sun"){
-          var w_on_selelcted = w*27.01;
-        }
-    if(strUser == "Mercury"){
-          var w_on_selelcted = w*0.38;
-        }
-    if(strUser == "Venus"){
-          var w_on_selelcted = w*0.91;
-        }
-    if(strUser == "Moon"){
-          var w_on_selelcted = w*0.17;
-        }
-    if(strUser == "Mars"){
-          var w_on_selelcted = w*0.38;
-        }
-    if(strUser == "Jupiter"){
-          var w_on_selelcted = w*2.34;
-        }
-    if(strUser == "Saturn"){
-          var w_on_selelcted = w*1.06;
-        }
-    if(strUser == "Uranus"){
-          var w_on_selelcted = w*0.92;
-        }
-    if(strUser == "Neptune"){
-          var w_on_selelcted = w*1.19;
-        }
-    if(strUser == "Pluto"){
-          var w_on_selelcted = w*0.06;
-        }
-  document.getElementById("result").innerHTML="Your weight is " + w_on_selelcted.toFixed(2)}</script>
-	</body>
+		var e = document.getElementById("select1");
+		var strUser = e.value;
+		if(strUser == "Sun"){
+			var w_on_selelcted = w*27.01;
+			}
+		if(strUser == "Mercury"){
+			var w_on_selelcted = w*0.38;
+			}
+		if(strUser == "Venus"){
+			var w_on_selelcted = w*0.91;
+			}
+		if(strUser == "Moon"){
+			var w_on_selelcted = w*0.17;
+			}
+		if(strUser == "Mars"){
+			var w_on_selelcted = w*0.38;
+			}
+		if(strUser == "Jupiter"){
+			var w_on_selelcted = w*2.34;
+			}
+		if(strUser == "Saturn"){
+			var w_on_selelcted = w*1.06;
+			}
+		if(strUser == "Uranus"){
+			var w_on_selelcted = w*0.92;
+			}
+		if(strUser == "Neptune"){
+			var w_on_selelcted = w*1.19;
+			}
+		if(strUser == "Pluto"){
+			var w_on_selelcted = w*0.06;
+			}
+  		document.getElementById("result").innerHTML="Your weight is " + w_on_selelcted.toFixed(2)}
+	</script>
+
+</body>
+
+<script src="../static/js/canvas.js"></script>
+
 </html>
