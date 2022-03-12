@@ -22,10 +22,10 @@ def news():
     return render_template("news.html")
 
 
-fp = open("static\jsons\mars.json")
-
-data = json.load(fp)
-fp.close()
+# fp = open("static\jsons\mars.json")
+#
+# data = json.load(fp)
+# fp.close()
 # print(data["img"])
 
 
@@ -63,10 +63,13 @@ def articles():
 
     for answer in answers:
         title = answer.find("h4", {"class": "title"}).find("a")
-        link = title.find("a")["href"]
+        link = title["href"]
+        print(link)
+
         description = answer.find("span", {"class": "description"})
         # img =
-        result.append({"title": title.text, "description": description, "link": link})
+        result.append({"title": title.text, "description": description.text, "link": link})
+    print(result)
 
     return jsonify(result)
 
