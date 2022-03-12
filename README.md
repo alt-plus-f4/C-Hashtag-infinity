@@ -8,8 +8,17 @@ Space S is a website for space news.
 
 <img src="images/Space_S.png"/>
 
+## Technology
+
+- HTML
+- CSS
+- JS
+- FLASK
+- HELIUM
+
 ## Authors
 
+- [@SashoJoto](https://github.com/SashoJoto)
 - [@valentin](https://github.com/alt-plus-f4/C-Hashtag-infinity)
 - [@nickolay-ivanov](https://github.com/nickolay-ivanov)
 - [@mrGoblings](https://github.com/mrGoblings)
