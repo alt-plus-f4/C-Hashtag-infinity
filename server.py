@@ -1,6 +1,6 @@
 import requests
+import json
 from bs4 import BeautifulSoup
-from selenium import webdriver
 from helium import *
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS, cross_origin
@@ -22,10 +22,17 @@ def news():
     return render_template("news.html")
 
 
+fp = open("static\jsons\mars.json")
+
+data = json.load(fp)
+fp.close()
+print(data["title"])
+
+
 @app.route("/solar_system")
 @cross_origin()
 def solar_system():
-    return render_template("solar_system.html")
+    return render_template("solar_system.html", title=data["title"], content=data["content"], img=data["img"])
 
 
 @app.route("/about")
