@@ -10,10 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="../static/css/navbar.css">
-    <!-- font script - Font Awesome -->
-    <script src="https://kit.fontawesome.com/75aeac7df4.js" crossorigin="anonymous"></script>
-    <script src = "script.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <title>SpaceS</title>
 </head>
 
@@ -38,10 +34,12 @@
         <script src="../static/js/burger.js"></script>
     </nav>
     <!-- Search bar and page title -->
-    <form class="search-container">
-        <input type="text" id="search-bar" placeholder="Search for news">
-        <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-    </form>
+    <div class="content">
+        <div class="search">
+            <input type="text" class="search__input" aria-label="search" placeholder="Search for news">
+            <button class="search__submit" aria-label="submit search"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
     <div class="card">
         <h2>Title</h2>
         <div class="image"></div>
@@ -55,5 +53,7 @@
 </body>
 <script src="../static/js/text.js"></script>
 <script src="../static/js/canvas.js"></script>
-
+<script src="https://kit.fontawesome.com/75aeac7df4.js" crossorigin="anonymous"></script>
+<script src = "script.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </html>

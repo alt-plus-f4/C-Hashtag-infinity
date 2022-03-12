@@ -193,3 +193,75 @@ input#search-bar:focus:-ms-placeholder {
     color: gray;
     cursor: pointer;
 }
+
+input[class="search__input"]::placeholder {
+    color: #ffff;
+}
+
+input, select, textarea{
+    font-size: 1.5vw;
+    color: #ffff;
+}
+
+textarea:focus, input:focus {
+    color: #ffff;
+}
+
+.content {
+    width: 30vw;
+    position: relative;
+    margin: 30px;
+}
+.search {
+    --size: 60px;
+    border: 3px solid ;
+    display: flex;
+    border-radius: 100px;
+    overflow: hidden;
+    font-size: 1.25em;
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    transition: width 450ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    padding: 3px;
+}
+.search__input {
+    border: 0;
+    padding: 0.25em 1em;
+    flex-grow: 1;
+    outline: 0;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
+}
+.search__submit {
+    font-size: 1.5rem;
+    margin-left: auto;
+    background: 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    width: calc(var(--size) - 10px);
+    height: calc(var(--size) - 10px);
+    color: #ffff;
+}
+.search:focus-within {
+    width: 100%;
+}
+.search:focus-within .search__input {
+    opacity: 1;
+    z-index: initial;
+    cursor: initial;
+    width: calc(100% - var(--size));
+}
+.search:focus-within .search__submit {
+    background: transparent;
+    color: white;
+}
+
