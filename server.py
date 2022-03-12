@@ -41,6 +41,13 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/search", methods=['GET'])
+@cross_origin()
+def search_page(all_searches=[]):
+    # TODO Errors
+    return render_template()
+
+
 @app.route('/articles', methods=['GET'])
 @cross_origin()
 def articles():
