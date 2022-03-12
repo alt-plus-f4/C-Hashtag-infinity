@@ -3,6 +3,6 @@ let redirect = () => {
     const input = document.querySelector('input');
     btn.addEventListener('click', () => {
         location.href.replace('/news', '');
-        location.href += `/articles?search=${input.value}`;
+        location.href += `../articles?search=${input.value}`;
     });
 }
