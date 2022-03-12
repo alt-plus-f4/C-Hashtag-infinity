@@ -47,8 +47,8 @@ def write_to_sql(data):
     # adding new info to the 'data' table in the query
     # change data to name of table
     command = ("INSERT INTO data"
-               "(title,date,data,link)"
-               "values(%s,%s,%s,%s)")
+               "(title,date,data,link,description)"
+               "values(%s,%s,%s,%s,%s)")
 
     my_cursor.execute(command, data)
     db.commit()
@@ -68,10 +68,11 @@ def write_to_sql(data):
 
 def get_news(my_dates, news_dict):
 
-    for i in range(0,6):
+    for i in range(0, 6):
+
         url = news_dict[my_dates[i]]
 
-        browser = helium.start_chrome(url, headless=False)
+        browser = helium.start_chrome(url, headless=True)
 
         time.sleep(1)
         soup = BeautifulSoup(browser.page_source, 'html.parser')
@@ -88,7 +89,9 @@ def get_news(my_dates, news_dict):
         title = title[len(title) - 1].replace("-", " ")
         date = date_formatting(my_dates[i])
 
-        write_to_sql((title, date, results, url))
+        description = results[:results.find(".")]
+
+        write_to_sql((title, date, results, url, description))
 
         '''print(title)
         print(date)
@@ -104,7 +107,7 @@ def load_news():
     default_url = "https://www.nasa.gov"
 
     # headless should be True in the finished versionn
-    browser = helium.start_chrome(url, headless=False)
+    browser = helium.start_chrome(url, headless=True)
 
     time.sleep(1)
     soup = BeautifulSoup(browser.page_source, 'html.parser')
@@ -148,5 +151,51 @@ def load_news():
     # scraping the news from the provided links
     get_news(my_dates, news_dict)
 
+
+def load_news_spacenews():
+    url = "https://spacenews.com/"
+    hrefs = list()
+    description = str()
+
+    # headless should be True in the finished versionn
+    browser = helium.start_chrome(url, headless=True)
+
+    time.sleep(1)
+    soup = BeautifulSoup(browser.page_source, 'html.parser')
+    results = BeautifulSoup(str(soup.find_all('li', {'class': 'article clearfix'})), 'html.parser').find_all("h1")
+
+    for i in results:
+        href = BeautifulSoup(str(i), 'html.parser').find("a")["href"]
+        hrefs.append(href)
+
+    for link in hrefs:
+        url = link
+        browser = helium.start_chrome(url, headless=True)
+
+        time.sleep(1)
+        soup = BeautifulSoup(browser.page_source, 'html.parser')
+        time_stamp = soup.find_all('span', {'class': 'authors'})
+        time_stamp = BeautifulSoup(str(time_stamp), 'html.parser').find('time')
+        temp_list = str(time_stamp.text).split(" ")
+        time_stamp = temp_list[1].replace(",", "") + "-" + temp_list[0][:3] + "-" + temp_list[2].replace("20", "")
+
+        date = date_formatting(time_stamp)
+        temp = link.split("/")
+        title = temp[len(temp) - 2].replace("-", " ")
+
+        data = soup.find('div', {'class': 'tablet-wrapper'}).find_all("p")
+
+        text = str()
+
+        for paragraphs in data:
+            if paragraphs == "Related Articles":
+                break
+            if text == "":
+                description += remove_html_tags(str(paragraphs))
+            temp = remove_html_tags(str(paragraphs))
+            text += temp
+
+        data = text
+        write_to_sql((title,  date, data, link, description))
 
 load_news()
