@@ -2,12 +2,36 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from helium import *
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+
+@app.route("/")
+@cross_origin()
+def index():
+    return render_template("index.html")
+
+
+@app.route("/news")
+@cross_origin()
+def news():
+    return render_template("news.html")
+
+
+@app.route("/solar_system")
+@cross_origin()
+def solar_system():
+    return render_template("solar_system.html")
+
+
+@app.route("/about")
+@cross_origin()
+def about():
+    return render_template("about.html")
 
 
 @app.route('/articles', methods=['GET'])
@@ -43,7 +67,7 @@ def article_by_url():
     # a = soup.find('section', 'wrapper')
     # req = requests.get(input_url)
     answer = BeautifulSoup(html, features="html.parser")
-    title = answer.find("h1", {"class": "title"})
+    title = answer.find("h1", {"class": "title"}).text
     print(title)
     # print(answer)
 
