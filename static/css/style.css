@@ -7,13 +7,6 @@
     box-sizing: border-box;
 }
 
-* {
-    font-family: 'Fredoka', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     margin: 0;
     background: #000000;
@@ -43,12 +36,6 @@ canvas {
     flex-direction: row;
     justify-content: space-between;
 }
-
-.news-main div{
-    font-size: 18px;
-    background: rgba(56, 57, 128, 0.342);
-}
-
 .card {
     padding: 1px;
     border-top: 6px solid red;
@@ -94,9 +81,27 @@ canvas {
     cursor: pointer;
 }
 
-.content {
-    float: top;
-    margin-right: 10px;
+.news-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.news-main div{
+    width: 350px;
+    font-size: 18px;
+    background: rgba(56, 57, 128, 0.342);
+}
+
+.content img {
+    width: 350px;
+    height: 260px;
+}
+
+.content a{
+    display: flex;
+    justify-content: space-around;
+
 }
 
 h1.splitting {
