@@ -31,7 +31,7 @@ canvas {
     bottom: 0; 
 }
 
-.canvas-galaxy{
+.connecting-dots{
     z-index: -1;
     background-image: linear-gradient( 90deg, hsl(152deg 70% 16%) 0%, hsl(181deg 75% 7%) 25%, hsl(192deg 91% 1%) 64%, hsl(0deg 0% 0%) 100% );
     position: fixed;
