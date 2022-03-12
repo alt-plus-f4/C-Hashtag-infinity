@@ -5,6 +5,29 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
+def remove_html_tags(text):
+    """Remove html tags from a string"""
+    import re
+    clean = re.compile('<.*?>')
+    return re.sub(clean, '', text)
+
+
+# format of the date it expects %d%d-%m(3letter word)-%y%y example:11-Jan-22
+def date_formatting(date):
+
+    month_list = ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Noe", "Dec"]
+
+    date_list = date.split("-")
+    return_date = int(date_list[2])
+
+    for index in range(len(month_list)):
+        if month_list[index] == date_list[1]:
+            return_date = return_date * 100 + index + 1
+
+    return_date = return_date * 100 + int(date_list[0])
+    return return_date
+
+
 def write_to_sql(data):
     db = mysql.connector.connect(
         # host should be changed to the address of the sqlserver
@@ -24,17 +47,55 @@ def write_to_sql(data):
     # adding new info to the 'data' table in the query
     # change data to name of table
     command = ("INSERT INTO data"
-               "(title,date,data)"
-               "values(%s,%s,%s)")
+               "(title,date,data,link)"
+               "values(%s,%s,%s,%s)")
 
     my_cursor.execute(command, data)
     db.commit()
 
+    '''
     # fetching the data from query
     my_cursor.execute("SELECT * FROM data")
 
     for i in my_cursor:
-        print(i)
+        print(i)'''
+
+    # sorts table by dates
+    command = ("SELECT * FROM `data` WHERE 1 ORDER BY date Desc")
+
+    my_cursor.execute(command)
+
+
+def get_news(my_dates, news_dict):
+
+    for i in range(0,6):
+        url = news_dict[my_dates[i]]
+
+        browser = helium.start_chrome(url, headless=False)
+
+        time.sleep(1)
+        soup = BeautifulSoup(browser.page_source, 'html.parser')
+        results = BeautifulSoup(str(soup.find_all('div', {'class': 'text'})), 'html.parser').find_all('p')
+
+        results = str(results)
+        end_point = results.find("-end-")
+        results = results[:end_point]
+
+        results = remove_html_tags(str(results))
+        results = results.replace(", , ", "")
+
+        title = url.split('/')
+        title = title[len(title) - 1].replace("-", " ")
+        date = date_formatting(my_dates[i])
+
+        write_to_sql((title, date, results, url))
+
+        '''print(title)
+        print(date)
+        print(results)
+        print(url)
+        print("---------------------------------------------------------------------")
+        '''
 
 
 def load_news():
@@ -42,6 +103,7 @@ def load_news():
     url = "https://www.nasa.gov/press-release/coverage-activities-set-for-first-rollout-of-nasa-s-mega-moon-rocket"
     default_url = "https://www.nasa.gov"
 
+    # headless should be True in the finished versionn
     browser = helium.start_chrome(url, headless=False)
 
     time.sleep(1)
@@ -83,8 +145,8 @@ def load_news():
         my_dates.sort(key=lambda date: datetime.strptime(date, "%d-%b-%y"))
         my_dates.reverse()
 
+    # scraping the news from the provided links
+    get_news(my_dates, news_dict)
 
 
-
-
-write_to_sql(("test_3", 123456, "data_3"))
+load_news()

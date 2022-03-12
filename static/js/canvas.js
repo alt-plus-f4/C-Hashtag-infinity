@@ -104,3 +104,11 @@ var canvasDots = function() {
 window.onload = function() {
     canvasDots();
 };
+
+window.onresize = resizeCanvas;
+
+function resizeCanvas(){
+    var canvas = document.querySelector('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}

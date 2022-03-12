@@ -22,10 +22,10 @@ def news():
     return render_template("news.html")
 
 
-fp = open("static\jsons\mars.json")
-
-data = json.load(fp)
-fp.close()
+# fp = open("static\jsons\mars.json")
+#
+# data = json.load(fp)
+# fp.close()
 # print(data["img"])
 
 
@@ -33,7 +33,7 @@ fp.close()
 @cross_origin()
 def solar_system():
     # return render_template("solar_system.html", title=data["title"], content=data["content"], img=data["img"])
-    return render_template("solar_system.html", title=data["title"], content=data["content"], img="../static/images")
+    return render_template("solar_system.html")
 
 
 @app.route("/about")
@@ -62,12 +62,14 @@ def articles():
     answers = BeautifulSoup(req.text, features="html.parser").find_all(class_="content-block-item result")
 
     for answer in answers:
-        title = answer.find("h4", {"class": "title"}).find("a").text
-        print()
-        description = answer.find("span", {"class": "description"}).text
-        link = answer.find("h4", {"class": "title"}).find("a")["href"]
+        title = answer.find("h4", {"class": "title"}).find("a")
+        link = title["href"]
+        print(link)
+
+        description = answer.find("span", {"class": "description"})
         # img =
-        result.append({"title": title, "description": description, "link": link})
+        result.append({"title": title.text, "description": description.text, "link": link})
+    print(result)
 
     return jsonify(result)
 
