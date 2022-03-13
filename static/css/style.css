@@ -525,8 +525,10 @@ html, body {
 /** Todo: add shadows to  dbl planets */
 
 .leading{
-    display: flex;
+    width: 30%;
+    display: inline-block;
     flex-direction: column;
+    padding: 5px;
 }
 
 .latest {
@@ -534,13 +536,17 @@ html, body {
     overflow-y: auto;
     margin: 30px;
     color: #ffff;
-    background-image: url("../images/saturn.png");
+    background-image: url("../images/mars.png");
+    background-position: -1cm;
     background-size: cover;
-    padding: 2rem 0 0;
+    padding: 3rem 0;
     max-width: 35ch;
     border-radius: .5rem;
     overflow: hidden;
     transition: transform 500ms ease;
+    position: relative;
+    margin: auto;
+
 }
 
 .latest-content {
@@ -549,6 +555,7 @@ html, body {
     background: linear-gradient(hsl(0 0% 0% / 0), hsl(20 0% 0% / .3) 20%, hsl(0 0% 0% / 1));
     transform: translateY(60%);
     transition: transform 500ms ease;
+    
 }
 
 .latest-title {
@@ -557,7 +564,7 @@ html, body {
 }
 
 .latest:hover .latest-content {
-    transform: translateY(0);
+    transform: translateY(1cm);
     transition-delay: 500ms;
 }
 
@@ -593,9 +600,12 @@ html, body {
     transform: scale(1.05);
 }
 
+
 .latest:hover .latest-title::after {
     transform: scaleX(1);
 }
+
+
 
 .button {
     cursor: pointer;
@@ -611,4 +621,10 @@ html, body {
 .button:hover, .button:focus {
     background-color: white;
     color: black;
+}
+
+.centerr{
+    position: relative;
+    text-align: center;
+
 }
