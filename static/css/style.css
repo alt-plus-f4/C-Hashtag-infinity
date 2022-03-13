@@ -535,10 +535,11 @@ html, body {
     margin: 30px;
     color: #ffff;
     background-image: url("../images/mars.png");
-    background-position: -1cm;
+    background-position: 50%;
     background-size: cover;
-    padding: 3rem 0;
-    max-width: 35ch;
+    padding: 4rem 0;
+    max-width: 30ch;
+    width: 30ch;
     border-radius: .5rem;
     overflow: hidden;
     transition: transform 500ms ease;
@@ -562,7 +563,7 @@ html, body {
 }
 
 .latest:hover .latest-content {
-    transform: translateY(1cm);
+    transform: translateY(2cm);
     transition-delay: 500ms;
 }
 
@@ -604,10 +605,11 @@ html, body {
 }
 
 .leading{
+    padding: 0.5em 1.25em;
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
-
 .button {
     cursor: pointer;
     display: inline;
