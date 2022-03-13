@@ -14,3 +14,8 @@ let redirectUrl = (id) => {
     location.href += `/article?id=${id}`;
 }
 
+let redirectArticle = (id) => {
+    location.href += `/article?id=${id}`;
+}
+
+
