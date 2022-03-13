@@ -118,6 +118,14 @@ window.onload = function() {
     canvasDots();
     const form = document.getElementById('search-form');
     form.addEventListener("submit", onSearch)
+
+    var images = ["https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/potw2103a.jpg", "https://www.cloudynights.com/uploads/monthly_09_2017/post-201437-0-79335000-1506796278.jpg", "https://i.stack.imgur.com/wIfpv.jpg", "https://i.stack.imgur.com/TZCPl.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSw1EG-08-l26oBJVw6bHZJ66q2JTxStvB_Q&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3mCqC4yDgDpedCkublsTJogJJpqGe3eFDaQ&usqp=CAU", "https://ak.picdn.net/shutterstock/videos/6966808/thumb/1.jpg?ip=x480", "https://wallpaperaccess.com/full/4423937.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-pVSXogwo_Z-pRzRoug6m_rsXlzPsSRuxpQ&usqp=CAU", "https://images.wisegeek.com/slideshow-mobile-small/planet-mars-in-space.jpg", "https://i.imgur.com/1Ul1TMZ.jpeg", "https://i.imgur.com/MRoS1qN.jpeg", "https://i.imgur.com/50VjiqY.jpeg", "https://i.imgur.com/3Yjs9zY.jpeg", "https://i.imgur.com/nCMk2n9.jpeg"]
+    for (let i = 0; i < images.length; i++) {
+        document.getElementById("i", i).style.backgroundImage = url(images[Math.floor(Math.random * images.length)].toString())
+        console.log("test")
+    }
+
+
 };
 
 
