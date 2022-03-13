@@ -529,7 +529,17 @@ html, body {
     justify-content: space-between;
 }
 
+#first{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSw1EG-08-l26oBJVw6bHZJ66q2JTxStvB_Q&usqp=CAU%22,") !important;
+}
+
+#sec{
+    
+}
+
 .latest {
+    max-height: 350px;
+    max-width: 380px;
     margin-bottom: 20px;
     overflow-y: auto;
     margin: 30px;
@@ -539,13 +549,14 @@ html, body {
     background-position: 50%;
     background-size: cover;
     padding: 4rem 0;
+    font-size: 18px;
     max-width: 30ch;
     width: 30ch;
     border-radius: .5rem;
     overflow: hidden;
     transition: transform 500ms ease;
     position: relative;
-    margin: auto;
+    margin: 10px 0;
 
 }
 
@@ -553,18 +564,23 @@ html, body {
     --padding: 1.5rem;
     padding: var(--padding);
     background: linear-gradient(hsl(0 0% 0% / 0), hsl(20 0% 0% / .3) 20%, hsl(0 0% 0% / 1));
-    transform: translateY(60%);
+    transform: translateY(1cm);
     transition: transform 500ms ease;
+    overflow: hidden;
     
 }
 
 .latest-title {
+    text-align: center;
+    justify-self: flex-start;
     margin: 30px;
-    word-wrap: break-word;
+    font-size: 24px;
+    word-wrap:normal;
+    transform: translateY(0cm);
 }
 
 .latest:hover .latest-content {
-    transform: translateY(2cm);
+    transform: translateY(-1.5cm);
     transition-delay: 500ms;
 }
 
@@ -580,7 +596,7 @@ html, body {
 
 .latest-title {
     position: relative;
-    width: max-content;
+    
 }
 
 .latest-title::after {

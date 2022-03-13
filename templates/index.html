@@ -13,6 +13,8 @@
     <title>SpaceS</title>
     <style>
         html,body{overflow-y: scroll; }
+
+
     </style>
 </head>
 
@@ -26,7 +28,8 @@
     <div class="content">
         <div class="search">
             <input type="text" class="search__input" aria-label="search" placeholder="Search for news">
-            <button id="submit_btn" class="search__submit" aria-label="submit search" onclick="redirect()"><i class="fas fa-search"></i>
+            <button id="submit_btn" class="search__submit" aria-label="submit search" onclick="redirect()"><i
+                    class="fas fa-search"></i>
             </button>
         </div>
     </div>
@@ -51,56 +54,56 @@
     </div>
 </div>-->
 
-<div class = "leading-news-class">
+<div class="leading-news-class">
     <div class="leading">
         <h1 style="margin: 30px" class="centerr">Latest</h1>
-        <div class="latest">
-            <div class="latest-content">
+        <div id = "first" class="latest" style="cursor: pointer;" onclick="redirectArticle(url0);">
+            <div class="latest-content" >
                 <h1 class="latest-title">{{title0}}</h1>
-                <p class="latest-body"  herf="#">{{data0}}</p>
-                <p class = "url" style="display: none;">{{link0}}</p>
+                <p class="latest-body" herf="#">{{data0}}</p>
+                <p class="url" id = "url0" style="display: none;">{{link0}}</p>
             </div>
         </div>
-        <div class="latest">
-            <div class="latest-content">
+        <div id = "sec" class="latest" style="cursor: pointer;" onclick="redirectArticle(url1);">
+            <div class="latest-content" >
                 <h1 class="latest-title">{{title1}}</h1>
-                <p class="latest-body"  herf="#">{{data1}}</p>
-                <p class = "url" style="display: none;">{{link1}}</p>
+                <p class="latest-body" herf="#">{{data1}}</p>
+                <p class="url" id = "url1" style="display: none;">{{link1}}</p>
             </div>
         </div>
     </div>
     <div class="leading">
         <h1 style="margin: 30px" class="centerr">Top</h1>
-        <div class="latest">
-            <div class="latest-content">
+        <div id = "third" class="latest" style="cursor: pointer;" onclick="redirectArticle(url2);">
+            <div class="latest-content" >
                 <h1 class="latest-title">{{title2}}</h1>
-                <p class="latest-body"  herf="#">{{data2}}</p>
-                <p class = "url" style="display: none;">{{link2}}</p>
+                <p class="latest-body" herf="#">{{data2}}</p>
+                <p class="url" id = "url2" style="display: none;">{{link2}}</p>
             </div>
         </div>
-        <div class="latest">
-            <div class="latest-content">
+        <div id = "ford" class="latest" style="cursor: pointer;" onclick="redirectArticle(url3);">
+            <div class="latest-content" >
                 <h1 class="latest-title">{{title3}}</h1>
-                <p class="latest-body"  herf="#">{{data3}}</p>
-                <p class = "url" style="display: none;">{{link3}}</p>
+                <p class="latest-body" herf="#">{{data3}}</p>
+                <p class="url" id = "url3" style="display: none;">{{link3}}</p>
             </div>
         </div>
     </div>
 
     <div class="leading">
         <h1 style="margin: 30px" class="centerr">Latest</h1>
-        <div class="latest">
-            <div class="latest-content">
+        <div id = "fift" class="latest" style="cursor: pointer;" onclick="redirectArticle(url4);">
+            <div class="latest-content" >
                 <h1 class="latest-title">{{title4}}</h1>
-                <p class="latest-body"  herf="#">{{data4}}</p>
-                <p class = "url" style="display: none;">{{link4}}</p>
+                <p class="latest-body" herf="#">{{data4}}</p>
+                <p class="url" id = "url4" style="display: none;">{{link4}}</p>
             </div>
         </div>
-        <div class="latest">
+        <div id = "sixt" class="latest" style="cursor: pointer;" onclick="redirectArticle(url5);">
             <div class="latest-content">
                 <h1 class="latest-title">{{title5}}</h1>
-                <p class="latest-body"  herf="#">{{data5}}</p>
-                <p class = "url" style="display: none;">{{link5}}</p>
+                <p class="latest-body" herf="#">{{data5}}</p>
+                <p class="url" id = "url5" style="display: none;">{{link5}}</p>
             </div>
         </div>
     </div>

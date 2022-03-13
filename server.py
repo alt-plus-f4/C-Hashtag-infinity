@@ -55,7 +55,13 @@ print(database_list)
 @cross_origin()
 # TODO get the values from the database
 def index(mylist=database_list):
-    return render_template("index.html", title="Test title", data="Test data")
+    return render_template("index.html",
+                           title0=mylist[0]["title"], data0=mylist[0]["description"], link0=mylist[0]["link"],
+                           title1=mylist[1]["title"], data1=mylist[1]["description"], link1=mylist[1]["link"],
+                           title2=mylist[2]["title"], data2=mylist[2]["description"], link2=mylist[2]["link"],
+                           title3=mylist[3]["title"], data3=mylist[3]["description"], link3=mylist[3]["link"],
+                           title4=mylist[4]["title"], data4=mylist[4]["description"], link4=mylist[4]["link"],
+                           title5=mylist[5]["title"], data5=mylist[5]["description"], link5=mylist[5]["link"])
 
 
 @app.route("/entertainment")
@@ -103,9 +109,7 @@ def articles():
         # img = "https://www.northropgrumman.com/wp-content/uploads/space-facebook.jpg"
         result.append({"title": title.text.strip(), "description": description, "link": link})
 
-    print(result)
-
-    index()
+    return index(result)
 
 
 @app.route('/article', methods=['GET'])
@@ -118,16 +122,30 @@ def article_by_url():
     html = browser.page_source
     answer = BeautifulSoup(html, features="html.parser")
 
-    title = answer.find("h1", {"class": "title"}).text
-    img = "https://nasa.gov" + answer.find("div", {"class": "dnd-drop-wrapper"}).find("img")["src"]
-    text_list = answer.find("div", {"class": "text"}).find_all("p")
-
     text = ""
-    for texts in text_list:
-        if "<strong>" not in str(texts):
+    title = ""
+    img = ""
+
+    if "nasa.gov" in input_url:
+        title = answer.find("h1", {"class": "title"}).text
+        img = "https://nasa.gov" + answer.find("div", {"class": "dnd-drop-wrapper"}).find("img")["src"]
+        text_list = answer.find("div", {"class": "text"}).find_all("p")
+
+        text = ""
+        for texts in text_list:
+            if "<strong>" not in str(texts):
+                text += texts.text
+            else:
+                break
+
+    else:
+        title = answer.find("h1", {"class": "post-title"}).text
+        img = answer.find("figure", {"class": "featured wp-caption"}).find("img")["src"]
+        text_list = answer.find("div", {"class": "tablet-wrapper"}).find_all("p")
+
+        text = ""
+        for texts in text_list:
             text += texts.text
-        else:
-            break
 
     result = {"title": title, "img": img, "data": text}
 
