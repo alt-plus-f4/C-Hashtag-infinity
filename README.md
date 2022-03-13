@@ -6,7 +6,7 @@
 галактиките, спътници и др. Също така включва интерактивна карта на слънчевата ни система (rip Pluto).
 Space S is a website for space news.
 
-<img src="\static\imagesSpace_S.png"/>
+<img src="static\images\Space_S.png"/>
 
 ## Technology
 
