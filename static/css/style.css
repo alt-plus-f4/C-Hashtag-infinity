@@ -530,11 +530,12 @@ html, body {
 }
 
 .latest {
-
+    margin-bottom: 20px;
     overflow-y: auto;
     margin: 30px;
     color: #ffff;
     background-image: url("../images/mars.png");
+    background-size: 30px;
     background-position: 50%;
     background-size: cover;
     padding: 4rem 0;

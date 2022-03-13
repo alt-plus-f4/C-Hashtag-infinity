@@ -1,11 +1,24 @@
 import requests
 import json
+import mysql.connector
 from bs4 import BeautifulSoup
 from helium import *
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS, cross_origin
 from daily_news import NasaApi
 
+db = mysql.connector.connect(
+    # host should be changed to the address of the sqlserver
+    host="localhost",
+    # port is changed from default
+    port=3306,
+    # user should be client_server
+    # user should have read/write permissions  to the tale
+    user="client_server",
+    # database should hold the database name
+    database="hacktues"
+
+)
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -15,13 +28,33 @@ planet_data = json.load(fp)
 
 fp.close()
 
-print(planet_data['0']["data"])
+my_cursor = db.cursor()
+
+# fetching the data from query
+my_cursor.execute("SELECT * FROM data")
+
+database_dict = {}
+database_list = []
+
+for i, el in enumerate(my_cursor):
+    if i == 6:
+        break
+
+    database_dict["title"] = el[0]
+    database_dict["data"] = el[2]
+    database_dict["link"] = el[3]
+    database_dict["description"] = el[4]
+
+    database_list.append(database_dict)
+    database_dict = {}
+
+print(database_list)
 
 
 @app.route("/", methods=['GET'])
 @cross_origin()
 # TODO get the values from the database
-def index(mylist=[]):
+def index(mylist=database_list):
     return render_template("index.html", title="Test title", data="Test data")
 
 
