@@ -33,7 +33,7 @@ def write_to_sql(data):
         # host should be changed to the address of the sqlserver
         host="localhost",
         # port is changed from default
-        port=3306,
+        port=3305,
         # user should be client_server
         # user should have read/write permissions  to the tale
         user="client_server",
