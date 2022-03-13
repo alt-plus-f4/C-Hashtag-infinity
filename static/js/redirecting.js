@@ -13,8 +13,8 @@ document.addEventListener('keyup', (event) => {
 });
 
 let redirectUrl = (id) => {
-    //location.assign("/");
-    location.href = `/article?id=${id}`;
+    location.assign("/");
+    location.href = `solar_system/article?id=${id}`;
 }
 
 let redirectArticle = (id) => {
