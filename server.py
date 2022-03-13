@@ -10,19 +10,19 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-fp = open("static\jsons\mars.json", "r")
-# planet_data = json.load(fp)
+fp = open("static\jsons\mars.json", "r", encoding='utf-8')
+planet_data = json.load(fp)
+
 fp.close()
 
+print(planet_data['0']["data"])
 
-# print(type(planet_data))
 
-
-@app.route("/")
+@app.route("/", methods=['GET'])
 @cross_origin()
 # TODO get the values from the database
-def index():
-    return render_template("index.html")
+def index(mylist=[]):
+    return render_template("index.html", title="Test title", data="Test data")
 
 
 @app.route("/entertainment")
@@ -106,8 +106,11 @@ def article_by_url():
 def article_by_planet():
     input_id = request.args.get("id")
 
-    return render_template("test_search.html", content=planet_data[input_id]["data"],
-                           title=planet_data[input_id]["title"], img=planet_data[input_id]["img"])
+    if 0 <= int(input_id) <= 7:
+        return render_template("test_search.html", content=planet_data[input_id]["data"],
+                               title=planet_data[input_id]["title"], img=planet_data[input_id]["img"])
+    else:
+        return "L"
 
 
 if __name__ == "__main__":

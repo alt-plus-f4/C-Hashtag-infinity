@@ -26,11 +26,6 @@ a.link {
     color: white;
 }
 
-.leading-news-class{
-    display: flex;
-    justify-content: space-between;
-}
-
 canvas {
     z-index: -1;
     background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(5, 4, 70, 1) 20%, rgba(9, 9, 121, 1) 68%, rgba(7, 58, 154, 1) 90%);
@@ -529,11 +524,9 @@ html, body {
 
 /** Todo: add shadows to  dbl planets */
 
-.leading{
-    width: 30%;
-    display: inline-block;
-    flex-direction: column;
-    padding: 5px;
+.leading-news-class{
+    display: flex;
+    justify-content: space-between;
 }
 
 .latest {
@@ -610,7 +603,10 @@ html, body {
     transform: scaleX(1);
 }
 
-
+.leading{
+    display: flex;
+    flex-direction: column;
+}
 
 .button {
     cursor: pointer;

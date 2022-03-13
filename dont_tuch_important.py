@@ -14,7 +14,6 @@ def remove_html_tags(text):
 
 # format of the date it expects %d%d-%m(3letter word)-%y%y example:11-Jan-22
 def date_formatting(date):
-
     month_list = ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Noe", "Dec"]
 
     date_list = date.split("-")
@@ -38,7 +37,7 @@ def write_to_sql(data):
         # user should have read/write permissions  to the tale
         user="client_server",
         # database should hold the database name
-        database="hacktues_test"
+        database="hacktues"
 
     )
 
@@ -67,9 +66,7 @@ def write_to_sql(data):
 
 
 def get_news(my_dates, news_dict):
-
     for i in range(0, 6):
-
         url = news_dict[my_dates[i]]
 
         browser = helium.start_chrome(url, headless=True)
@@ -102,7 +99,6 @@ def get_news(my_dates, news_dict):
 
 
 def load_news():
-
     url = "https://www.nasa.gov/press-release/coverage-activities-set-for-first-rollout-of-nasa-s-mega-moon-rocket"
     default_url = "https://www.nasa.gov"
 
@@ -196,6 +192,7 @@ def load_news_spacenews():
             text += temp
 
         data = text
-        write_to_sql((title,  date, data, link, description))
+        write_to_sql((title, date, data, link, description))
 
-load_news()
+
+load_news_spacenews()
