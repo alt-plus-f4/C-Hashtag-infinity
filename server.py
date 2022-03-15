@@ -7,18 +7,22 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS, cross_origin
 from daily_news import NasaApi
 
-db = mysql.connector.connect(
-    # host should be changed to the address of the sqlserver
-    host="localhost",
-    # port is changed from default
-    port=3306,
-    # user should be client_server
-    # user should have read/write permissions  to the tale
-    user="client_server",
-    # database should hold the database name
-    database="hacktues"
+try:
+    db = mysql.connector.connect(
+        # host should be changed to the address of the sqlserver
+        host="localhost",
+        # port is changed from default
+        port=3306,
+        # user should be client_server
+        # user should have read/write permissions  to the tale
+        user="client_server",
+        # database should hold the database name
+        database="hacktues"
 
-)
+    )
+except Exception:
+    db = {}
+
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -128,7 +132,11 @@ def article_by_url():
 
     if "nasa.gov" in input_url:
         title = answer.find("h1", {"class": "title"}).text
-        img = "https://nasa.gov" + answer.find("div", {"class": "dnd-drop-wrapper"}).find("img")["src"]
+        try:
+            img = "https://nasa.gov" + answer.find("div", {"class": "dnd-drop-wrapper"}).find("img")["src"]
+        except Exception:
+            img = NULL
+
         text_list = answer.find("div", {"class": "text"}).find_all("p")
 
         text = ""
@@ -147,9 +155,12 @@ def article_by_url():
         for texts in text_list:
             text += texts.text
 
-    result = {"title": title, "img": img, "data": text}
+    if img:
+        result = {"title": title, "img": img, "data": text}
+        return render_template("test_search.html", content=result["data"], title=result["title"], img=result["img"])
 
-    return render_template("test_search.html", content=result["data"], title=result["title"], img=result["img"])
+    result = {"title": title, "data": text}
+    return render_template("test_search.html", content=result["data"], title=result["title"])
 
 
 @app.route('/solar_system/article', methods=['GET'])
